@@ -1,0 +1,24 @@
+extends layouts/master
+
+block content
+	include layouts/nav
+	include layouts/mixins
+	.container
+		.row
+			.col-md-12
+				.add-new-block
+					h3 Edit 
+						span=project.name
+					form.form(method="post", action="/edit/projects/"+project.id,enctype="multipart/form-data")
+						mixin editInput("name","text",project.name)
+						img(src=project.image)
+						mixin editInput("","hidden",project.image)
+						mixin editInput("Thumbnail","file","")
+						.form-group
+							label(for="description") Description
+							textarea(name="description", class="form-control", rows="10")=project.description
+						mixin editInput("link","text",project.link)
+						mixin editInput("github","text",project.github)
+						input(type="hidden", name="_csrf", value=_csrf)
+						a.btn.btn-danger(href="/rootaccess",id="cancel-form",role="button") cancel
+						button.btn.btn-primary(type="submit") Edit Project

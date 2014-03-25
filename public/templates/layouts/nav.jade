@@ -1,0 +1,18 @@
+.navbar.navbar-default(role="navigation")
+	.container-fluid
+		.navbar-header
+			a.navbar-brand(href="/") Donald Derek's Backend System
+		ul.nav.navbar-nav.navbar-right
+			li.active
+				a(href="/rootaccess", id="list-all") List All
+			li
+				a(href="#", id="add-new") Add New	
+			li.dropdown
+				a.dropdown-toggle(href="#",data-toggle="dropdown") Account
+					b(class="caret")
+				ul.dropdown-menu
+					li
+						a(href="#") Settings
+					li.divider
+					li
+						a(href="/logout") Logout

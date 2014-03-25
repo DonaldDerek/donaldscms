@@ -1,0 +1,9 @@
+mixin bsInput(name, type, placeholder)
+	.form-group
+		label(for=name)=name
+		input(type=type,name=name, class="form-control", id=name, placeholder=placeholder)
+
+mixin editInput(name, type, value)
+	.form-group
+		label(for=name)=name
+		input(type=type,name=name, class="form-control", id=name, value=value)

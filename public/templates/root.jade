@@ -1,0 +1,51 @@
+extends layouts/master
+
+block content
+	include layouts/nav
+	include layouts/mixins
+	.container
+		.row
+			.col-md-12
+				.add-new-block.fadeout
+					h3 Add New
+					form.form(method="post", action="/add",enctype="multipart/form-data")
+						mixin bsInput("name","text","Enter Project Name","")
+						mixin bsInput("Thumbnail","file","")
+						mixin bsInput("description","text","Enter Project Description","")
+						mixin bsInput("link","text","Enter Project Link","")
+						mixin bsInput("github","text","Enter Project Github Link","")
+						input(type="hidden", name="_csrf", value=_csrf)
+						a.btn.btn-danger(href="#",id="cancel-form",role="button") cancel
+						button.btn.btn-primary(type="submit") Add Project
+				.projects-block
+					h3 Projects
+					table.table.table-striped
+						thead
+							tr
+								th #
+								th Name
+								th Project Description
+								th Host
+								th Github
+								th Thumbnail
+								th Action
+						tbody
+							-var counter = 1
+							each project in projects
+								tr
+									td=counter++
+									td=project.name
+									td=project.description
+									td
+										a(href=project.link)=project.link
+									td
+										a(href=project.github)=project.github
+									td
+										img(src=host + project.image, height="120")
+									td
+										a.btn.btn-default.btn-xs(href="/edit/projects/"+project.id) Edit
+										form.simple-form(method="post", action="/remove/projects/"+project.id)
+											input(type="hidden", name="_csrf", value=_csrf)
+											button.btn.btn-danger.btn-xs(type="submit") Delete	
+
+							

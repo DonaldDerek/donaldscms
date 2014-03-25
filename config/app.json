@@ -1,0 +1,33 @@
+{
+
+ "port": 8888,
+ "host": "localhost",
+ "i18n": {
+     "fallback": "en-US",
+     "contentPath": "path:./locales"
+ },
+
+ "routes": {
+     "routePath": "path:./controllers"
+ },
+ "databaseConfig": {
+    "host": "localhost",
+    "database": "donald"
+ },
+   "bcrypt": {
+        "difficulty": 8
+ },
+ "express": {
+     "x-powered-by": false,
+     "trust proxy": false,
+     "jsonp callback name": null,
+     "json replacer": null,
+     "json spaces": 0,
+     "case sensitive routing": false,
+     "strict routing": false,
+     "view cache": true,
+     "view engine": "jade",
+     "views": "path:./public/templates"
+ }
+
+}

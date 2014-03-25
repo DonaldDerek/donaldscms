@@ -1,0 +1,13 @@
+{
+    "middleware": {
+        "session": {
+            "module": "memory",
+            "secret": "a01346d9c10d6543808186f183e0d5fb8f8cc8ca"
+        },
+        "multipart":{
+        	"params":{
+        		"uploadDir":"/public/images"
+        	}
+        }
+    }
+}
